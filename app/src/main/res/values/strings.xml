@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MVITest</string>
+    <string name="go_to_all_product">go to All Product\n</string>
+    <string name="go_to_fav">go to favourite</string>
+    <string name="save">save</string>
+    <string name="remove">remove</string>
+</resources>
