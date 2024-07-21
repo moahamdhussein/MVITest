@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 
 class FavouriteViewModel(private val repo: IProductRepo) : ViewModel() {
 
-    private val _state = MutableStateFlow(ProductState())
-    val state: StateFlow<ProductState> = _state
+    private val _state = MutableStateFlow(ProductState<Products>(remoteProduct = emptyList()))
+    val state: StateFlow<ProductState<Products>> = _state
 
 
     fun handleIntent(intent: ProductIntent) {
@@ -32,7 +32,7 @@ class FavouriteViewModel(private val repo: IProductRepo) : ViewModel() {
     }
 
     private suspend fun fetchProduct() {
-        _state.value = _state.value.copy(loading = true, error = null)
+        _state.value  = _state.value.copy(loading = true, error = null)
         val products = repo.getStoredProduct()
         _state.value = ProductState(loading = false, remoteProduct = products)
 

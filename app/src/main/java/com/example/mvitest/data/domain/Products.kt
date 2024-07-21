@@ -11,7 +11,7 @@ data class Products(
     val id: Int,
     val title: String,
     val description: String,
-    val brand: String,
+    val brand: String?,
     @SerializedName("thumbnail")
     @ColumnInfo(name = "url")
     val url: String,

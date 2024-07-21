@@ -34,7 +34,7 @@ class ProductListAdapter(
         holder.tvTitle.text = currentObject.title
         Glide.with(binding.root).load(currentObject.url).into(holder.imageView)
 
-        binding.btnSave.setOnClickListener {
+        holder.btnSave.setOnClickListener {
             Log.i(TAG, "onBindViewHolder: $currentObject")
             listener.saveProduct(currentObject)
         }
@@ -51,6 +51,7 @@ class ProductListAdapter(
         val tvBrand: TextView = binding.tvBrand
         val tvPrice: TextView = binding.tvPrice
         val tvTitle = binding.tvTitle
+        val btnSave = binding.btnSave
 
     }
 }

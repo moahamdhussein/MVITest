@@ -1,8 +1,12 @@
 package com.example.mvitest.data.repo
 
+import android.util.Log
 import com.example.mvitest.data.localDataSource.IProductLocalDataSource
 import com.example.mvitest.data.domain.Products
 import com.example.mvitest.data.remoteDataSource.IProductRemoteDataSource
+
+
+private const val TAG = "ProductRepo"
 
 class ProductRepo private constructor(
     private var remoteDataSource: IProductRemoteDataSource,
@@ -36,6 +40,7 @@ class ProductRepo private constructor(
 
     override suspend fun insertProduct(products: Products) {
         localDataSource.insertProduct(products)
+        Log.i(TAG, "insertProduct: inserted")
     }
 
     override suspend fun deleteProduct(products: Products) {

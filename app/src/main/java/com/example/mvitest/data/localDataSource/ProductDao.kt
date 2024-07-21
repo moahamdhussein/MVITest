@@ -12,7 +12,7 @@ interface ProductDao {
     @Query("SELECT * FROM product_table")
     suspend fun getAllProduct(): List<Products>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(products: Products)
 
     @Delete
